@@ -1,0 +1,18 @@
+{
+  "recursos": {
+    "base_datos_consulta": {
+      "descripcion": "Base de datos interna de solo consulta"
+    },
+    "intranet_publica": {
+      "descripcion": "Portal de intranet accesible a invitados"
+    },
+    "administracion_red": {
+      "descripcion": "Administracion de la red interna"
+    }
+  },
+  "roles": {
+    "admin": ["*"],
+    "empleado": ["base_datos_consulta"],
+    "invitado": ["intranet_publica"]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "admin": {
+    "rol": "admin",
+    "salt": "NMtSAFUXF5Brs8BXj82atA==",
+    "hash": "KwaIIpSTU8wILGjVWFSi4q4N8b1/ooNKgXyQHwMSZIoLc0CX6NG0/BkJPToJw3MbTyJZR/wW5IF7gFS3LSvHiw==",
+    "n": 16384,
+    "r": 8,
+    "p": 1
+  },
+  "empleado": {
+    "rol": "empleado",
+    "salt": "axTv3v5rkVAGoljg90Pv6w==",
+    "hash": "i8BMZ7e3TReymVHoV2FiBOpI+0JEsX+gW3BwHoFJjD3YAHz++12PPTIeTbxQ9Wu9BzjBwTN88LsoL4KmLHRsXQ==",
+    "n": 16384,
+    "r": 8,
+    "p": 1
+  },
+  "invitado": {
+    "rol": "invitado",
+    "salt": "0zQZx71dGLZa5S/3Nh3yfA==",
+    "hash": "ZJlBO0ZF/AWCbIuomup2r4tgYFV7RHOW88MJRpbjCtGj5eT0vXw0LwSF87KG3XpVhiKpz96mwmuXhlLw0tksqA==",
+    "n": 16384,
+    "r": 8,
+    "p": 1
+  }
+}

@@ -1,0 +1,21 @@
+# Fragmento para OpenSSH. Instalarlo como:
+# /etc/ssh/sshd_config.d/99-comunicaciones.conf
+#
+# La llave de sshadmin debe instalarse en ~/.ssh/authorized_keys; no se
+# incluyen llaves privadas en el repositorio.
+
+PermitRootLogin no
+AllowUsers sshadmin
+MaxAuthTries 3
+LogLevel VERBOSE
+
+# Cambiar explícitamente a "yes" solo para la prueba de contraseña.
+PasswordAuthentication no
+PubkeyAuthentication yes
+AuthorizedKeysFile .ssh/authorized_keys
+
+PermitEmptyPasswords no
+X11Forwarding no
+AllowAgentForwarding no
+AllowTcpForwarding no
+MaxSessions 2
