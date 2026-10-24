@@ -5,7 +5,7 @@ IPSec, VPN y AAA (autenticación, autorización y registro). El proyecto no
 implementa una pila de red de producción: IPSec y las VPN se modelan en
 memoria para poder observar sus decisiones y encapsulados.
 
-#Aportes
+## Aportes
 Cristian Uriel Galvan Peña 234598 
 
 ## Arquitectura
@@ -58,6 +58,8 @@ flowchart LR
   cliente-servidor. Un arreglo habitual es:
   - **Equipo servidor (A):** Ubuntu Server con OpenSSH y el repositorio.
   - **Equipo cliente (B):** Windows con Python y Git Bash, o Ubuntu.
+- El proyecto se probó con un servidor Kali en VirtualBox (red Host-Only
+  192.168.56.0/24) y un cliente Windows.
 
 Los módulos Python de AAA, IPSec y VPN no necesitan dos equipos porque se
 ejecutan localmente. La comunicación de `app/` sí usa la red real.
@@ -77,8 +79,31 @@ py -3 -m venv .venv
 Si `py -3` no existe, instale Python 3.11+ y use el ejecutable configurado
 en su entorno. Para ejecutar los scripts `.sh` de PKI puede usar Git Bash o
 WSL; `Makefile` y los scripts SSH están escritos para un entorno Unix.
+Es posible que `make` no exista en Windows; en ese caso, con el entorno
+virtual activo, use `python -m pytest -q` en lugar de `make test`.
 
+### En Ubuntu o Kali (Bash)
+
+Desde la raíz del proyecto:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 ```
+
+En Kali puede faltar `/var/log/auth.log`, que es el archivo que lee por
+defecto `ssh/analizar_logs.py`. Para que exista, instale rsyslog:
+
+```bash
+sudo apt install -y rsyslog
+```
+
+El analizador reconoce tanto las líneas `sshd[pid]:` como las
+`sshd-session[pid]:` que registran las versiones recientes de OpenSSH.
+
+Los scripts `.sh` requieren permiso de ejecución (`chmod +x script.sh`);
+también pueden lanzarse con `bash script.sh`.
 
 ## Ejecución paso a paso
 

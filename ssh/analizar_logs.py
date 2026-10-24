@@ -18,15 +18,15 @@ from aaa.logger import configurar_logger, registrar_evento
 
 _PATRONES: tuple[tuple[str, re.Pattern[str]], ...] = (
     ("PERMITIDO", re.compile(
-        r"sshd(?:\[\d+\])?: Accepted \S+ for (?P<usuario>\S+) from "
+        r"sshd(?:-session)?(?:\[\d+\])?: Accepted \S+ for (?P<usuario>\S+) from "
         r"(?P<ip>\S+)"
     )),
     ("RECHAZADO", re.compile(
-        r"sshd(?:\[\d+\])?: Failed \S+ for (?:invalid user )?"
+        r"sshd(?:-session)?(?:\[\d+\])?: Failed \S+ for (?:invalid user )?"
         r"(?P<usuario>\S+) from (?P<ip>\S+)"
     )),
     ("RECHAZADO", re.compile(
-        r"sshd(?:\[\d+\])?: User (?P<usuario>\S+) from (?P<ip>\S+) "
+        r"sshd(?:-session)?(?:\[\d+\])?: User (?P<usuario>\S+) from (?P<ip>\S+) "
         r"not allowed because not listed in AllowUsers"
     )),
 )

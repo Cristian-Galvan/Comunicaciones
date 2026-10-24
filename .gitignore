@@ -5,3 +5,4 @@ __pycache__/
 logs/
 pki/out/
 .pytest_cache/
+*.key.pem
